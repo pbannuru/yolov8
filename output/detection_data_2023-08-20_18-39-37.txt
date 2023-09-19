@@ -1,0 +1,13 @@
+[{'class': 'NO-Hardhat', 'confidence': 0.88, 'box': Ultralytics YOLO <class 'ultralytics.yolo.engine.results.Boxes'> masks
+type: <class 'torch.Tensor'>
+shape: torch.Size([1, 6])
+dtype: torch.float32
+ + tensor([[325.00000, 104.00000, 536.00000, 270.00000,   0.87033,   2.00000]])}, {'class': 'Person', 'confidence': 0.87, 'box': Ultralytics YOLO <class 'ultralytics.yolo.engine.results.Boxes'> masks
+type: <class 'torch.Tensor'>
+shape: torch.Size([1, 6])
+dtype: torch.float32
+ + tensor([[ 57.00000,  94.00000, 640.00000, 480.00000,   0.86860,   5.00000]])}, {'class': 'NO-Mask', 'confidence': 0.56, 'box': Ultralytics YOLO <class 'ultralytics.yolo.engine.results.Boxes'> masks
+type: <class 'torch.Tensor'>
+shape: torch.Size([1, 6])
+dtype: torch.float32
+ + tensor([[327.00000, 331.00000, 517.00000, 480.00000,   0.55670,   3.00000]])}]
