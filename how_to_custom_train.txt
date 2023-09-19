@@ -1,0 +1,49 @@
+Create folder : ConstructionSafety
+    create folder train/images
+                train/labels
+    create folder test/images
+                test/labels
+    create folder valid/images
+                valid/labels    # through labelimg
+
+---------------------------------------------------------------------------------------------
+##  create  file
+## data.yaml ##
+train: ../train/images
+val: ../valid/images
+test: ../test/images 
+
+nc:10  # no of classes 
+names: ['Hardhat', 'Mask', 'NO-Hardhat', 'NO-Mask', 'NO-Safety Vest', 'Person', 'Safety Cone',
+              'Safety Vest', 'machinery', 'vehicle',]
+
+roboflow:
+    workplace: roboflow-universe-projects
+    project: construction-site-Safety
+    version:27
+    license: CC BY 4.0
+    url: https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety/dataset/27
+
+-----------------------------------------------------------------------------------------------------
+# to download dataset run in jupyter notebook.
+!pip install roboflow
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="unauthorized")
+project = rf.workspace("roboflow-universe-projects").project("construction-site-safety")
+dataset = project.version(27).download("yolov8")
+
+------------------------------------------------------------------------------
+## train through colab :::
+--> copy train,test,valid folders along with data.yaml file to drive and mount drive with colab
+--> modify data.yaml file by adding path : ../drive/Mydrive/Datasets/ConstructionSafety
+
+--> !pip install ultralytics
+--> from ultralytics import YOLO
+testing model: instalations and all
+!yolo task=detect mode=predict model=yolov8l.pt conf=0.25 source='https://ultralytics.com/images/bus.jpg' 
+## it downloads model and image
+custom data training:
+!yolo task=detect mode=train model=yolov8l.pt data=../content/drive/Mydrive/Datasets/ConstructionSafety/data.yaml epochs=50 imgsz=640
+--> once training done go to runs folder /detect/train/weights/best.pt 
+--> this best.pt is our custom data trained model use to detect the model 
