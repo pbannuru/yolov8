@@ -12,9 +12,9 @@ if not os.path.exists(output_dir):
 
 # OpenCV VideoCapture object
 #cap = cv2.VideoCapture("../Videos/ppe-3.mp4")  # For Video
-# cap=cv2.VideoCapture(0)  #--->webcam
-url="rtsp://admin:123456@192.168.1.10:554/H264?ch=1&subtype=1"
-cap= cv2.VideoCapture(url)  
+cap=cv2.VideoCapture(0)  #--->webcam
+# url="rtsp://admin:123456@192.168.1.10:554/H264?ch=1&subtype=1"
+# cap= cv2.VideoCapture(url)  
 model = YOLO("ppe.pt")
 
 # List of class names
